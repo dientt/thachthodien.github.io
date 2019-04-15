@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Micronaut Modified So Simple Theme - blog</title>
+		<description>Posts in blog category</description>
+		<link href="http://localhost:4001/blog"/>
+		<atom:link href="http://localhost:4001/feed.blog.xml" rel="self" type="application/rss+xml" />
+        <category term="blog"/>
+		
+			<item>
+				<title type="html"><![CDATA[Organizing your data]]></title>
+				<link rel="alternate" type="text/html" href="http://localhost:4001/blog/organizing-your-data/" />				
+				<description>&lt;h4 id=&quot;the-docs-folder&quot;&gt;The ‘docs’ folder&lt;/h4&gt;
+&lt;p&gt;All data (pages, posts, collections, xmldata) is located in the documents folder named &lt;kbd&gt;docs&lt;/kbd&gt;. The documents folder is declared in the _config.yml as:&lt;/p&gt;
+
+</description>
+				
+				<published>2018-12-22T04:30:50+01:00</published>
+				<updated>2018-12-22T04:30:50+01:00</updated>
+				<guid isPermaLink="true">http://localhost:4001/blog/organizing-your-data/</guid>
+			</item>
+		
+			<item>
+				<title type="html"><![CDATA[Creating a collection: howto]]></title>
+				<link rel="alternate" type="text/html" href="http://localhost:4001/blog/how-to-setup-collections/" />				
+				<description>&lt;p&gt;Collections is a very handy jekyll feature. It helps&lt;/p&gt;
+
+</description>
+				
+				<published>2018-12-05T04:30:50+01:00</published>
+				<updated>2018-12-05T04:30:50+01:00</updated>
+				<guid isPermaLink="true">http://localhost:4001/blog/how-to-setup-collections/</guid>
+			</item>
+		
+			<item>
+				<title type="html"><![CDATA[Markup: HTML Elements and Formatting]]></title>
+				<link rel="alternate" type="text/html" href="http://localhost:4001/blog/markup-html-elements-and-formatting/" />				
+				<description>&lt;p&gt;A variety of common HTML elements to demonstrate the theme’s stylesheet and verify they have been styled appropriately.&lt;/p&gt;
+
+</description>
+				
+				<published>2015-08-11T14:08:50+02:00</published>
+				<updated>2015-08-11T14:08:50+02:00</updated>
+				<guid isPermaLink="true">http://localhost:4001/blog/markup-html-elements-and-formatting/</guid>
+			</item>
+		
+			<item>
+				<title type="html"><![CDATA[MathJax Example]]></title>
+				<link rel="alternate" type="text/html" href="http://localhost:4001/blog/mathjax-example/" />				
+				<description>&lt;p&gt;&lt;a href=&quot;http://www.mathjax.org/&quot;&gt;MathJax&lt;/a&gt; is a simple way of including Tex/LaTex/MathML based mathematics in HTML webpages. To get up and running you need to include the MathJax script in the header of your github pages page, and then write some maths. For LaTex, there are two delimiters you need to know about, one for block or displayed mathematics &lt;code class=&quot;highlighter-rouge&quot;&gt;\[ ... \]&lt;/code&gt;, and the other for inline mathematics &lt;code class=&quot;highlighter-rouge&quot;&gt;\( ... \)&lt;/code&gt;.&lt;/p&gt;
+
+</description>
+				
+				<published>2015-08-10T14:08:50+02:00</published>
+				<updated>2015-08-10T14:08:50+02:00</updated>
+				<guid isPermaLink="true">http://localhost:4001/blog/mathjax-example/</guid>
+			</item>
+		
+			<item>
+				<title type="html"><![CDATA[Example of a post in blog category]]></title>
+				<link rel="alternate" type="text/html" href="http://localhost:4001/blog/views/blog-post-example/" />				
+				<description>Excerpt for post in blog category</description>
+				<updated>2014-11-16T20:39:00+01:00</updated>
+				<published>2014-09-29T00:20:00+02:00</published>
+				<guid isPermaLink="true">http://localhost:4001/blog/views/blog-post-example/</guid>
+			</item>
+		
+			<item>
+				<title type="html"><![CDATA[Hello World]]></title>
+				<link rel="alternate" type="text/html" href="http://localhost:4001/blog/hello-world/" />				
+				<description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory - edit this post and re-build (or run with the &lt;code class=&quot;highlighter-rouge&quot;&gt;-w&lt;/code&gt; switch) to see your changes!
+To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention: YYYY-MM-DD-name-of-post.ext.&lt;/p&gt;
+
+</description>
+				<updated>2016-06-01 14:19:19 -0400</updated>
+				<published>2014-08-08T21:39:55+02:00</published>
+				<guid isPermaLink="true">http://localhost:4001/blog/hello-world/</guid>
+			</item>
+		
+			<item>
+				<title type="html"><![CDATA[Markup: Syntax Highlighting]]></title>
+				<link rel="alternate" type="text/html" href="http://localhost:4001/blog/markup-syntax-highlighting/" />				
+				<description>Post displaying the various ways one can highlight code blocks with Jekyll. Some options include standard Markdown, GitHub Flavored Markdown, and Jekyll's `{% highlight %}` tag.</description>
+				
+				<published>2013-08-16T14:08:50+02:00</published>
+				<updated>2013-08-16T14:08:50+02:00</updated>
+				<guid isPermaLink="true">http://localhost:4001/blog/markup-syntax-highlighting/</guid>
+			</item>
+		
+			<item>
+				<title type="html"><![CDATA[Post: Link]]></title>
+				<link rel="alternate" type="text/html" href="http://localhost:4001/blog/post-link/" />				
+				<description>&lt;p&gt;This theme supports &lt;strong&gt;link posts&lt;/strong&gt;, made famous by John Gruber. To use, just add &lt;code class=&quot;highlighter-rouge&quot;&gt;link: http://url-you-want-linked&lt;/code&gt; to the post’s YAML front matter and you’re done.&lt;/p&gt;
+
+</description>
+				
+				<published>2010-03-07T13:08:50+01:00</published>
+				<updated>2010-03-07T13:08:50+01:00</updated>
+				<guid isPermaLink="true">http://localhost:4001/blog/post-link/</guid>
+			</item>
+		
+	</channel>
+</rss>

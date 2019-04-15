@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Micronaut Modified So Simple Theme - music</title>
+		<description>Posts in music category</description>
+		<link href="http://localhost:4001/music"/>
+		<atom:link href="http://localhost:4001/feed.music.xml" rel="self" type="application/rss+xml" />
+        <category term="music"/>
+		
+			<item>
+				<title type="html"><![CDATA[TimelineJs integration example]]></title>
+				<link rel="alternate" type="text/html" href="http://localhost:4001/music/timelinejs-example/" />				
+				<description>&lt;p&gt;The following page demonstrates how to integrate &lt;a href=&quot;https://timeline.knightlab.com&quot; target=&quot;_blank&quot;&gt;Knight Lab’s TimelineJs&lt;/a&gt; on your blog. The original data is stored as xml file on this repository, and they are automatically loaded and parsed via javascript. :simple_smile:&lt;/p&gt;
+
+</description>
+				
+				<published>2017-01-24T21:15:00+01:00</published>
+				<updated>2017-01-24T21:15:00+01:00</updated>
+				<guid isPermaLink="true">http://localhost:4001/music/timelinejs-example/</guid>
+			</item>
+		
+			<item>
+				<title type="html"><![CDATA[Example of a post in music category]]></title>
+				<link rel="alternate" type="text/html" href="http://localhost:4001/music/music-post-example/" />				
+				<description>Excerpt for a post in music category</description>
+				<updated>2016-09-08T19:14:00+02:00</updated>
+				<published>2016-07-02T13:58:00+02:00</published>
+				<guid isPermaLink="true">http://localhost:4001/music/music-post-example/</guid>
+			</item>
+		
+	</channel>
+</rss>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4001/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4001/" rel="alternate" type="text/html" /><updated>2019-04-15T11:47:04+02:00</updated><id>http://localhost:4001/feed.xml</id><title type="html">Micronaut Modified So Simple Theme</title><subtitle>Theme based on So Simple Theme</subtitle><entry><title type="html">Organizing your data</title><link href="http://localhost:4001/blog/organizing-your-data/" rel="alternate" type="text/html" title="Organizing your data" /><published>2018-12-22T04:30:50+01:00</published><updated>2018-12-22T04:30:50+01:00</updated><id>http://localhost:4001/blog/organizing-your-data</id><content type="html" xml:base="http://localhost:4001/blog/organizing-your-data/">&lt;h4 id=&quot;the-docs-folder&quot;&gt;The ‘docs’ folder&lt;/h4&gt;
+&lt;p&gt;All data (pages, posts, collections, xmldata) is located in the documents folder named &lt;kbd&gt;docs&lt;/kbd&gt;. The documents folder is declared in the _config.yml as:&lt;/p&gt;
+
+&lt;p&gt;&lt;kbd&gt;collections_dir: docs&lt;/kbd&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;creating-categories&quot;&gt;Creating Categories&lt;/h4&gt;
+&lt;p&gt;It is wise to organize your posts in categories, although this is not necessary. A post may have more than one category defined in the yaml front-matter as:
+&lt;kbd&gt;categories: [category1, category2, ...]&lt;/kbd&gt;. Categories are treated hierarchically, thus in the previous example, &lt;kbd&gt;category2&lt;/kbd&gt; will be a subcategory of &lt;kbd&gt;category1&lt;/kbd&gt;.&lt;/p&gt;
+
+&lt;p&gt;Adding a new category in your site is as trivial as defining the category in your post’s yaml front-matter. To list all posts of the same category, you have to create a new page in folder &lt;kbd&gt;/categories/&lt;/kbd&gt;. You may name the file however you like, but typically the filename follows the name of the category it represents. The content of the markdown file should look as the following example for the blog category:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;page&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;BLOG&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;categories&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;blog&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/blog/&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+
+&lt;span class=&quot;pi&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;include post-list.html taxonomy='blog' image='images/pen-hand.gif' %&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In the include statement, the ‘image’ parameter is optional. This image will be displayed in the top of the list of the categorie’s posts.&lt;/p&gt;
+
+&lt;p&gt;You may choose any permalink you like to display your page, but it is wiser to keep it simple.&lt;/p&gt;
+
+&lt;p&gt;Next to the category page, it makes sense to have the category (rss) feed page. Some of your visitors might want to subscribe to rss feed only for a certain category rather than all posts. To do so, you need to add a new xml (template) file in folder &lt;kbd&gt;/categories/feeds&lt;/kbd&gt;. The filename should have the format &lt;kbd&gt;feed.{CategoryName}.xml&lt;/kbd&gt;, and the content of the file should be as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/feed.blog.xml&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;sitemap&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+
+&lt;span class=&quot;pi&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;include category-feed.xml postlist=site.categories.blog taxonomy='blog' %&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After building your site, the feed file should be in present in the root folder. If that is the case, then the navigation menu will display a ‘Subscribe’ link to the feed file so that visitors can access it and subscribe to the categories feed. If you don’t specify a feed template for a category, then the ‘Subscribe’ link will not be displayed.&lt;/p&gt;
+
+&lt;h4 id=&quot;collections&quot;&gt;Collections&lt;/h4&gt;
+&lt;p&gt;For collections check &lt;a href=&quot;/blog/how-to-setup-collections/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><author><name>Author1</name></author><summary type="html">The ‘docs’ folder All data (pages, posts, collections, xmldata) is located in the documents folder named docs. The documents folder is declared in the _config.yml as:</summary></entry><entry><title type="html">Creating a collection: howto</title><link href="http://localhost:4001/blog/how-to-setup-collections/" rel="alternate" type="text/html" title="Creating a collection: howto" /><published>2018-12-05T04:30:50+01:00</published><updated>2018-12-05T04:30:50+01:00</updated><id>http://localhost:4001/blog/how-to-setup-collections</id><content type="html" xml:base="http://localhost:4001/blog/how-to-setup-collections/">&lt;p&gt;Collections is a very handy jekyll feature. It helps&lt;/p&gt;
+
+&lt;p&gt;In the following we shall describe the steps required in order to create a Jekyll collection. We have created &lt;a href=&quot;/animals&quot; target=&quot;_blank&quot;&gt;a collection of animals&lt;/a&gt; for demo purposes.&lt;/p&gt;
+
+&lt;h4 id=&quot;1-in-the-docscollections-folder-create-a-markdown-file-and-give-it-any-name-you-like-preferably-same-as-your-collection-name-eg-animalsmd&quot;&gt;1. In the &lt;kbd&gt;/docs/collections/&lt;/kbd&gt; folder, create a markdown file and give it any name you like, preferably same as your collection name (e.g. &lt;kbd&gt;animals.md&lt;/kbd&gt;).&lt;/h4&gt;
+
+&lt;p&gt;This file is meant to aggregate and present all collection items.&lt;/p&gt;
+
+&lt;p&gt;In its yaml front-matter, specify the layout as &lt;kbd&gt;collection&lt;/kbd&gt;, and declare the name of the collection (e.g. &lt;kbd&gt;animals&lt;/kbd&gt;). Optionally you may specify the permalink in which the collection will be available, typically same as the collection name.&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;collection&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;animals&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;animals&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/animals/&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;&lt;strong&gt;Tip:&lt;/strong&gt; The collection page will appear automatically as link in the site’s navigation menu of each collection item. The previous and next arrows will navigate through the collection items.&lt;/p&gt;
+
+&lt;p&gt;You may add any additional content you like, which will be displayed before the list of items.&lt;/p&gt;
+
+&lt;h4 id=&quot;2-create-a-folder-inside-the-documents-docs-folder-and-name-it-as-per-your-collection-name-prefixed-with-underscore-eg-_animals&quot;&gt;2. Create a folder inside the documents (docs) folder and name it as per your collection name prefixed with underscore (e.g. &lt;kbd&gt;_animals&lt;/kbd&gt;).&lt;/h4&gt;
+
+&lt;p&gt;This folder is where the collection files (.md) should be stored (each file corresponds to an individual collection item).&lt;/p&gt;
+
+&lt;h4 id=&quot;3-add-markdown-files-for-each-collection-item&quot;&gt;3. Add markdown files for each collection item.&lt;/h4&gt;
+
+&lt;p&gt;The filenames are not relevant, other than to just keep a track on where each item is declared.&lt;/p&gt;
+
+&lt;p&gt;In the yaml front-matter of each collection item, specify the &lt;kbd&gt;layout name&lt;/kbd&gt; (see step 4) and a &lt;kbd&gt;title&lt;/kbd&gt;. Optionally, include whatever attributes are necessary to describe your  collection items. These attributes will be ignored by default, unless your collection item template use them for display (see step 4).&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;animal&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Cormorant&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Aves&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;family&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Phalacrocoracidae&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;feature&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;credit&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;pexels.com&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;creditlink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;thumbnail&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;images.pexels.com/photos/760629/pexels-photo-760629.jpeg&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you don’t want a particular layout, you can make use of the default &lt;kbd&gt;page&lt;/kbd&gt; layout; in this case, the collection item will be rendered as a normal page.&lt;/p&gt;
+
+&lt;p&gt;You may add any additional content you like, which will be displayed according to the layout that you will create in step 4. You should create as many markdown files as your collection items. It is not necessary to specify any creation date (as required in posts), as this is not needed by jekyll.&lt;/p&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;&lt;strong&gt;Tip:&lt;/strong&gt; Although a thumbnail or a feature image is not necessary to render the collection item page, it is nice to declare one, so that the collection page to display the item thumbnail properly. If you don’t do so, your site’s logo will be used.&lt;/p&gt;
+
+&lt;h4 id=&quot;4-in-_layouts-folder-create-a-new-layout-for-your-collection-items&quot;&gt;4. In &lt;kbd&gt;_layouts&lt;/kbd&gt; folder, create a new layout for your collection items.&lt;/h4&gt;
+
+&lt;p&gt;It makes more sense to have a dedicated layout for your collection items. Such a layout should inherit from the &lt;kbd&gt;page&lt;/kbd&gt; layout, as each collection item is actually a page and not a post.&lt;/p&gt;
+
+&lt;p&gt;You may decide whether to use this layout for all, or use a different layout for each of your collections. Since collections are meant to be different from each other, it makes sense to define a layout per collection, and call the layout file similar to your collection name (e.g. &lt;kbd&gt;animal.html&lt;/kbd&gt;).&lt;/p&gt;
+
+&lt;p&gt;Here is the layout used for the animals collection items:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
+layout: page
+---
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;article&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;animal&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  
+    {% if page.image.thumbnail %}
+    {% assign imageUrl = 'https://' | append: page.image.thumbnail %}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;figure&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ imageUrl }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ imageUrl }}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Photo of a {{ page.title | downcase }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+        {% if page.image.credit %}
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;figcaption&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ imageUrl }}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ imageUrl }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Credits: {{ page.image.credit }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/figcaption&amp;gt;&lt;/span&gt;
+        {% endif %}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/figure&amp;gt;&lt;/span&gt;
+  {% endif %}
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h5&amp;gt;&lt;/span&gt;Class : {{ page.class }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h5&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h5&amp;gt;&lt;/span&gt;Family: {{ page.family }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h5&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h5&amp;gt;&lt;/span&gt;Description&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h5&amp;gt;&lt;/span&gt;
+  
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    {{ content }}
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+ 
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/article&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The layout parses the attributes defined in each collection item and renders them as specified. You need some basic knowledge of &lt;kbd&gt;html&lt;/kbd&gt; and perhaps &lt;kbd&gt;liquid&lt;/kbd&gt; to achieve this.&lt;/p&gt;
+
+&lt;h4 id=&quot;5-declare-the-collection-in-your-_configyml&quot;&gt;5. Declare the collection in your &lt;kbd&gt;_config.yml&lt;/kbd&gt;.&lt;/h4&gt;
+
+&lt;p&gt;This is needed by Jekyll. Not doing so, your collection will be ignored.&lt;/p&gt;
+
+&lt;p&gt;In the following example, two collections are defined, namely &lt;kbd&gt;animals&lt;/kbd&gt; and &lt;kbd&gt;books&lt;/kbd&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;collections&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;animals&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/:collection/:path&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;books&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/:collection/:path&lt;/span&gt;    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;6-add-the-new-collection-to-the-sites-main-menu-navigation-or-wherever&quot;&gt;6. Add the new collection to the site’s main menu (navigation) or wherever.&lt;/h4&gt;
+
+&lt;p&gt;Collections (similar to pages) are not posts, and therefore are not displayed in the post lists. In order to be accessed, the collection page (see step 1) needs to be included in either your sites menu (edit &lt;kbd&gt;_data/navigation.yml&lt;/kbd&gt; accordingly), or anywhere else you think is proper.&lt;/p&gt;</content><author><name>Author1</name></author><category term="Collections" /><summary type="html">Collections is a very handy jekyll feature. It helps</summary></entry><entry><title type="html">Post: Twitter Embed</title><link href="http://localhost:4001/media/post-twitter-embeds/" rel="alternate" type="text/html" title="Post: Twitter Embed" /><published>2018-05-16T00:00:00+02:00</published><updated>2017-03-09T18:57:42+01:00</updated><id>http://localhost:4001/media/post-twitter-embeds</id><content type="html" xml:base="http://localhost:4001/media/post-twitter-embeds/">&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Oh I dunno. It&amp;#39;s probably been over 15 years since I smudged out a face with a pencil and kneaded eraser. &lt;a href=&quot;https://twitter.com/hashtag/WIP?src=hash&quot;&gt;#WIP&lt;/a&gt; &lt;a href=&quot;https://twitter.com/hashtag/Sktchy?src=hash&quot;&gt;#Sktchy&lt;/a&gt; &lt;a href=&quot;https://t.co/PwqbMddyVK&quot;&gt;pic.twitter.com/PwqbMddyVK&lt;/a&gt;&lt;/p&gt;&amp;mdash; Michael Rose (@mmistakes) &lt;a href=&quot;https://twitter.com/mmistakes/status/826644109670612997&quot;&gt;February 1, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;This post tests Twitter Embeds.&lt;/p&gt;</content><author><name></name></author><category term="content" /><category term="embeds" /><category term="media" /><category term="twitter" /><summary type="html">Oh I dunno. It&amp;#39;s probably been over 15 years since I smudged out a face with a pencil and kneaded eraser. #WIP #Sktchy pic.twitter.com/PwqbMddyVK&amp;mdash; Michael Rose (@mmistakes) February 1, 2017</summary></entry><entry><title type="html">Post: Standard</title><link href="http://localhost:4001/post%20formats/post-standard/" rel="alternate" type="text/html" title="Post: Standard" /><published>2018-05-16T00:00:00+02:00</published><updated>2018-05-16T00:00:00+02:00</updated><id>http://localhost:4001/post%20formats/post-standard</id><content type="html" xml:base="http://localhost:4001/post%20formats/post-standard/">&lt;p&gt;All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it to her mother. I suppose she must have looked rather delightful, for Mrs. Darling put her hand to her heart and cried, “Oh, why can’t you remain like this for ever!” This was all that passed between them on the subject, but henceforth Wendy knew that she must grow up. You always know after you are two. Two is the beginning of the end.&lt;/p&gt;
+
+&lt;p&gt;Mrs. Darling first heard of Peter when she was tidying up her children’s minds. It is the nightly custom of every good mother after her children are asleep to rummage in their minds and put things straight for next morning, repacking into their proper places the many articles that have wandered during the day.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;This post has a manual excerpt &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;!--more--&amp;gt;&lt;/code&gt; set after the second paragraph. The following YAML Front Matter has also be applied:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;excerpt_separator&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;lt;!--more--&amp;gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you could keep awake (but of course you can’t) you would see your own mother doing this, and you would find it very interesting to watch her. It is quite like tidying up drawers. You would see her on her knees, I expect, lingering humorously over some of your contents, wondering where on earth you had picked this thing up, making discoveries sweet and not so sweet, pressing this to her cheek as if it were as nice as a kitten, and hurriedly stowing that out of sight. When you wake in the morning, the naughtiness and evil passions with which you went to bed have been folded up small and placed at the bottom of your mind and on the top, beautifully aired, are spread out your prettier thoughts, ready for you to put on.&lt;/p&gt;
+
+&lt;p&gt;I don’t know whether you have ever seen a map of a person’s mind. Doctors sometimes draw maps of other parts of you, and your own map can become intensely interesting, but catch them trying to draw a map of a child’s mind, which is not only confused, but keeps going round all the time. There are zigzag lines on it, just like your temperature on a card, and these are probably roads in the island, for the Neverland is always more or less an island, with astonishing splashes of colour here and there, and coral reefs and rakish-looking craft in the offing, and savages and lonely lairs, and gnomes who are mostly tailors, and caves through which a river runs, and princes with six elder brothers, and a hut fast going to decay, and one very small old lady with a hooked nose. It would be an easy map if that were all, but there is also first day at school, religion, fathers, the round pond, needle-work, murders, hangings, verbs that take the dative, chocolate pudding day, getting into braces, say ninety-nine, three-pence for pulling out your tooth yourself, and so on, and either these are part of the island or they are another map showing through, and it is all rather confusing, especially as nothing will stand still.&lt;/p&gt;
+
+&lt;p&gt;Of course the Neverlands vary a good deal. John’s, for instance, had a lagoon with flamingoes flying over it at which John was shooting, while Michael, who was very small, had a flamingo with lagoons flying over it. John lived in a boat turned upside down on the sands, Michael in a wigwam, Wendy in a house of leaves deftly sewn together. John had no friends, Michael had friends at night, Wendy had a pet wolf forsaken by its parents, but on the whole the Neverlands have a family resemblance, and if they stood still in a row you could say of them that they have each other’s nose, and so forth. On these magic shores children at play are for ever beaching their coracles [simple boat]. We too have been there; we can still hear the sound of the surf, though we shall land no more.&lt;/p&gt;
+
+&lt;p&gt;Of all delectable islands the Neverland is the snuggest and most compact, not large and sprawly, you know, with tedious distances between one adventure and another, but nicely crammed. When you play at it by day with the chairs and table-cloth, it is not in the least alarming, but in the two minutes before you go to sleep it becomes very real. That is why there are night-lights.&lt;/p&gt;
+
+&lt;p&gt;Occasionally in her travels through her children’s minds Mrs. Darling found things she could not understand, and of these quite the most perplexing was the word Peter. She knew of no Peter, and yet he was here and there in John and Michael’s minds, while Wendy’s began to be scrawled all over with him. The name stood out in bolder letters than any of the other words, and as Mrs. Darling gazed she felt that it had an oddly cocky appearance.&lt;/p&gt;</content><author><name></name></author><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html">All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it to her mother. I suppose she must have looked rather delightful, for Mrs. Darling put her hand to her heart and cried, “Oh, why can’t you remain like this for ever!” This was all that passed between them on the subject, but henceforth Wendy knew that she must grow up. You always know after you are two. Two is the beginning of the end. Mrs. Darling first heard of Peter when she was tidying up her children’s minds. It is the nightly custom of every good mother after her children are asleep to rummage in their minds and put things straight for next morning, repacking into their proper places the many articles that have wandered during the day.</summary></entry><entry><title type="html">Suspicio? Bene … tunc ibimus? Quis uh … CONEXUS locus his diebus? Quisque semper aliquid videtur, in volutpat mauris. Nolo enim dicere. Vobis neque ab aliis. Ego feci memetipsum explicans. Gus mortuus est. Lorem opus habeo. Jackson Isai? Tu quoque … A te quidem a ante. Vos scitis quod blinking res Ive ‘been vocans super vos? Et conteram illud, et conteram hoc. Maledicant druggie excors. Iam hoc tu facere conatus sum ad te in omni tempore? Ludum mutavit. Verbum est ex. Et … sunt occid</title><link href="http://localhost:4001/edge%20case/edge-case-very-long-title/" rel="alternate" type="text/html" title="Suspicio? Bene ... tunc ibimus? Quis uh ... CONEXUS locus his diebus? Quisque semper aliquid videtur, in volutpat mauris. Nolo enim dicere. Vobis neque ab aliis. Ego feci memetipsum explicans. Gus mortuus est. Lorem opus habeo. Jackson Isai? Tu quoque ... A te quidem a ante. Vos scitis quod blinking res Ive 'been vocans super vos? Et conteram illud, et conteram hoc. Maledicant druggie excors. Iam hoc tu facere conatus sum ad te in omni tempore? Ludum mutavit. Verbum est ex. Et ... sunt occid" /><published>2018-05-16T00:00:00+02:00</published><updated>2018-05-16T00:00:00+02:00</updated><id>http://localhost:4001/edge%20case/edge-case-very-long-title</id><content type="html" xml:base="http://localhost:4001/edge%20case/edge-case-very-long-title/">&lt;p&gt;Check for long titles and how they might break layouts.&lt;/p&gt;</content><author><name></name></author><category term="content" /><category term="css" /><category term="edge case" /><category term="html" /><category term="layout" /><category term="title" /><summary type="html">Check for long titles and how they might break layouts.</summary></entry><entry><title type="html">Antidisestablishmentarianism</title><link href="http://localhost:4001/edge%20case/edge-case-title-should-not-overflow-the-content-area/" rel="alternate" type="text/html" title="Antidisestablishmentarianism" /><published>2018-05-16T00:00:00+02:00</published><updated>2017-03-09T20:10:02+01:00</updated><id>http://localhost:4001/edge%20case/edge-case-title-should-not-overflow-the-content-area</id><content type="html" xml:base="http://localhost:4001/edge%20case/edge-case-title-should-not-overflow-the-content-area/">&lt;p&gt;This post title has a long word that could potentially overflow the content area.&lt;/p&gt;
+
+&lt;p&gt;A few things to check for:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Non-breaking text in the title should have no adverse effects on layout or functionality.&lt;/li&gt;
+  &lt;li&gt;Check the browser window / tab title.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The following CSS property will help you support non-breaking text.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;word-wrap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;break-word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="content" /><category term="css" /><category term="edge case" /><category term="html" /><category term="layout" /><category term="title" /><summary type="html">This post title has a long word that could potentially overflow the content area.</summary></entry><entry><title type="html">Edge Case No Yaml Title</title><link href="http://localhost:4001/edge%20case/edge-case-no-yaml-title/" rel="alternate" type="text/html" title="Edge Case No Yaml Title" /><published>2018-05-16T00:00:00+02:00</published><updated>2018-05-16T00:00:00+02:00</updated><id>http://localhost:4001/edge%20case/edge-case-no-yaml-title</id><content type="html" xml:base="http://localhost:4001/edge%20case/edge-case-no-yaml-title/">&lt;p&gt;This post has no title specified in the YAML Front Matter. Jekyll should auto-generate a title from the filename.&lt;/p&gt;
+
+&lt;p&gt;For example &lt;code class=&quot;highlighter-rouge&quot;&gt;2009-09-05-edge-case-no-yaml-title.md&lt;/code&gt; becomes &lt;strong&gt;Edge Case No Yaml Title&lt;/strong&gt;.&lt;/p&gt;</content><author><name></name></author><category term="edge case" /><category term="layout" /><category term="title" /><summary type="html">This post has no title specified in the YAML Front Matter. Jekyll should auto-generate a title from the filename.</summary></entry><entry><title type="html">Edge Case: Nested and Mixed Lists</title><link href="http://localhost:4001/edge%20case/edge-case-nested-and-mixed-lists/" rel="alternate" type="text/html" title="Edge Case: Nested and Mixed Lists" /><published>2018-05-16T00:00:00+02:00</published><updated>2017-03-09T20:25:52+01:00</updated><id>http://localhost:4001/edge%20case/edge-case-nested-and-mixed-lists</id><content type="html" xml:base="http://localhost:4001/edge%20case/edge-case-nested-and-mixed-lists/">&lt;p&gt;Nested and mixed lists are an interesting beast. It’s a corner case to make sure that lists within lists do not break the ordered list numbering order and list styles go deep enough.&lt;/p&gt;
+
+&lt;h2 id=&quot;ordered--unordered--ordered&quot;&gt;Ordered – Unordered – Ordered&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;ordered item&lt;/li&gt;
+  &lt;li&gt;ordered item
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;unordered&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;unordered&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ol&gt;
+      &lt;li&gt;ordered item&lt;/li&gt;
+      &lt;li&gt;ordered item&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;ordered item&lt;/li&gt;
+  &lt;li&gt;ordered item&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;ordered--unordered--unordered&quot;&gt;Ordered – Unordered – Unordered&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;ordered item&lt;/li&gt;
+  &lt;li&gt;ordered item
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;unordered&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;unordered&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul&gt;
+      &lt;li&gt;unordered item&lt;/li&gt;
+      &lt;li&gt;unordered item&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;ordered item&lt;/li&gt;
+  &lt;li&gt;ordered item&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;unordered--ordered--unordered&quot;&gt;Unordered – Ordered – Unordered&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;unordered item&lt;/li&gt;
+  &lt;li&gt;unordered item
+    &lt;ol&gt;
+      &lt;li&gt;ordered&lt;/li&gt;
+      &lt;li&gt;ordered
+        &lt;ul&gt;
+          &lt;li&gt;unordered item&lt;/li&gt;
+          &lt;li&gt;unordered item&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;unordered item&lt;/li&gt;
+  &lt;li&gt;unordered item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;unordered--unordered--ordered&quot;&gt;Unordered – Unordered – Ordered&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;unordered item&lt;/li&gt;
+  &lt;li&gt;unordered item
+    &lt;ul&gt;
+      &lt;li&gt;unordered&lt;/li&gt;
+      &lt;li&gt;unordered
+        &lt;ol&gt;
+          &lt;li&gt;&lt;strong&gt;ordered item&lt;/strong&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;ordered item&lt;/strong&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;unordered item&lt;/li&gt;
+  &lt;li&gt;unordered item&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="content" /><category term="css" /><category term="edge case" /><category term="lists" /><category term="markup" /><summary type="html">Nested and mixed lists are an interesting beast. It’s a corner case to make sure that lists within lists do not break the ordered list numbering order and list styles go deep enough.</summary></entry><entry><title type="html">Edge Case: Many Tags</title><link href="http://localhost:4001/edge%20case/edge-case-many-tags/" rel="alternate" type="text/html" title="Edge Case: Many Tags" /><published>2018-05-16T00:00:00+02:00</published><updated>2018-05-16T00:00:00+02:00</updated><id>http://localhost:4001/edge%20case/edge-case-many-tags</id><content type="html" xml:base="http://localhost:4001/edge%20case/edge-case-many-tags/">&lt;p&gt;This post has many tags.&lt;/p&gt;</content><author><name></name></author><category term="8BIT" /><category term="alignment" /><category term="Articles" /><category term="captions" /><category term="categories" /><category term="chat" /><category term="comments" /><category term="content" /><category term="css" /><category term="dowork" /><category term="edge_case" /><category term="embeds" /><category term="excerpt" /><category term="Fail" /><category term="featured_image" /><category term="FTW" /><category term="Fun" /><category term="gallery" /><category term="html" /><category term="image" /><category term="Jekyll" /><category term="layout" /><category term="link" /><category term="Love" /><category term="markup" /><category term="Mothership" /><category term="Must_Read" /><category term="Nailed_It" /><category term="Pictures" /><category term="Post_Formats" /><category term="quote" /><category term="standard" /><category term="Success" /><category term="Swagger" /><category term="Tags" /><category term="template" /><category term="title" /><category term="twitter" /><category term="Unseen" /><category term="video" /><category term="YouTube" /><summary type="html">This post has many tags.</summary></entry><entry><title type="html">Post: Video (YouTube)</title><link href="http://localhost:4001/post%20formats/post-video-youtube/" rel="alternate" type="text/html" title="Post: Video (YouTube)" /><published>2018-05-16T00:00:00+02:00</published><updated>2018-02-01T18:54:35+01:00</updated><id>http://localhost:4001/post%20formats/post-video-youtube</id><content type="html" xml:base="http://localhost:4001/post%20formats/post-video-youtube/">&lt;p&gt;This post tests YouTube video embeds.&lt;/p&gt;
+
+&lt;div class=&quot;responsive-embed responsive-embed-16by9&quot;&gt;&lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/l2Of1-d5E5o?controls=0&amp;amp;&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;Simply use the &lt;code class=&quot;highlighter-rouge&quot;&gt;responsive-embed&lt;/code&gt; helper include like so:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{% include responsive-embed url=&quot;https://www.youtube.com/watch?v=-PVofD2A9t8&quot; ratio=&quot;16:9&quot; %}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Or wrap embeds with a &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element and the appropriate classes:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 21:9 aspect ratio --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;responsive-embed responsive-embed-21by9&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;responsive-embed-item&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 16:9 aspect ratio --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;responsive-embed responsive-embed-16by9&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;responsive-embed-item&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 4:3 aspect ratio --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;responsive-embed responsive-embed-4by3&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;responsive-embed-item&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 1:1 aspect ratio --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;responsive-embed responsive-embed-1by1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;responsive-embed-item&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="Post Formats" /><summary type="html">This post tests YouTube video embeds.</summary></entry></feed>
