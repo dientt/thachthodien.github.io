@@ -3,59 +3,59 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://thachthodien.github.io/categories/</loc>
+    <loc>https://thachthodien.github.io/public/categories/</loc>
     <lastmod>2019-04-17T18:19:16+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://thachthodien.github.io/</loc>
+    <loc>https://thachthodien.github.io/public/</loc>
     <lastmod>2019-04-17T18:19:16+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://thachthodien.github.io/2019/04/hello-world/</loc>
+    <loc>https://thachthodien.github.io/public/2019/04/hello-world/</loc>
     <lastmod>2019-04-17T18:19:16+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://thachthodien.github.io/post/</loc>
-    <lastmod>2019-04-17T18:19:16+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://thachthodien.github.io/tags/</loc>
+    <loc>https://thachthodien.github.io/public/post/</loc>
     <lastmod>2019-04-17T18:19:16+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://thachthodien.github.io/categories/thachthodien/</loc>
+    <loc>https://thachthodien.github.io/public/tags/</loc>
     <lastmod>2019-04-17T18:19:16+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://thachthodien.github.io/tags/thachthodien/</loc>
+    <loc>https://thachthodien.github.io/public/categories/thachthodien/</loc>
     <lastmod>2019-04-17T18:19:16+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://thachthodien.github.io/tags/japan/</loc>
+    <loc>https://thachthodien.github.io/public/tags/thachthodien/</loc>
+    <lastmod>2019-04-17T18:19:16+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://thachthodien.github.io/public/tags/japan/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://thachthodien.github.io/2019/04/%C4%91i-nh%E1%BA%ADt-v%E1%BB%81-th%C3%AC-mua-g%C3%AC/</loc>
+    <loc>https://thachthodien.github.io/public/2019/04/%C4%91i-nh%E1%BA%ADt-v%E1%BB%81-th%C3%AC-mua-g%C3%AC/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://thachthodien.github.io/archives/</loc>
+    <loc>https://thachthodien.github.io/public/archives/</loc>
     <priority>0</priority>
   </url>
   
