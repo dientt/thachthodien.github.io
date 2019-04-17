@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>thachthodien on Dien&#39;s Corner</title>
+    <link>https://thachthodien.github.io/categories/thachthodien/</link>
+    <description>Recent content in thachthodien on Dien&#39;s Corner</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 17 Apr 2019 18:19:16 +0900</lastBuildDate>
+    
+	<atom:link href="https://thachthodien.github.io/categories/thachthodien/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello World!</title>
+      <link>https://thachthodien.github.io/2019/04/hello-world/</link>
+      <pubDate>Wed, 17 Apr 2019 18:19:16 +0900</pubDate>
+      
+      <guid>https://thachthodien.github.io/2019/04/hello-world/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Đi Nhật về thì mua gì?</title>
+      <link>https://thachthodien.github.io/2019/04/%C4%91i-nh%E1%BA%ADt-v%E1%BB%81-th%C3%AC-mua-g%C3%AC/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://thachthodien.github.io/2019/04/%C4%91i-nh%E1%BA%ADt-v%E1%BB%81-th%C3%AC-mua-g%C3%AC/</guid>
+      <description>&lt;p&gt;Đi Nhật về thì mua gì?&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
